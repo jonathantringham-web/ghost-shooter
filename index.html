@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ghost Hunter</title>
+  <title>Ghost Shooter</title>
   <style>
     body {
       margin: 0;
@@ -10,6 +10,7 @@
       color: white;
       font-family: "Creepster", cursive, sans-serif;
       text-align: center;
+      overflow: hidden;
     }
     canvas {
       display: block;
@@ -21,13 +22,65 @@
       font-size: 18px;
       letter-spacing: 2px;
     }
+    #overlay {
+      position: absolute;
+      top:0; left:0; right:0; bottom:0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:rgba(0,0,0,0.85);
+      color:white;
+      flex-direction:column;
+      z-index:10;
+    }
+    .btns {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: grid;
+      grid-template-columns: 60px 60px 60px;
+      grid-template-rows: 60px 60px 60px;
+      gap: 5px;
+    }
+    .btn {
+      background: rgba(255,255,255,0.1);
+      border: 2px solid #0ff;
+      border-radius: 10px;
+      color: #0ff;
+      font-size: 24px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      user-select:none;
+    }
+    .btn:active {
+      background: #0ff;
+      color:black;
+    }
   </style>
-  <!-- spooky font from Google -->
   <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
 <body>
   <div id="hud">Score: 0 &nbsp; Lives: 3 &nbsp; Level: 1</div>
   <canvas id="game" width="560" height="620"></canvas>
+
+  <!-- Start overlay -->
+  <div id="overlay">
+    <h1 style="font-size:48px; margin:0;">👻 Ghost Shooter 👻</h1>
+    <p style="font-size:20px;">Tap to Begin</p>
+  </div>
+
+  <!-- Mobile directional buttons -->
+  <div class="btns">
+    <div></div><div class="btn" id="btn-up">▲</div><div></div>
+    <div class="btn" id="btn-left">◀</div><div></div><div class="btn" id="btn-right">▶</div>
+    <div></div><div class="btn" id="btn-down">▼</div><div></div>
+  </div>
+
+  <!-- Spooky music -->
+  <audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4f8c8a3df3.mp3?filename=halloween-theme-110184.mp3" loop></audio>
+
   <script src="game.js"></script>
 </body>
 </html>
