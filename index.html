@@ -7,16 +7,26 @@
     body {
       margin: 0;
       background: black;
-      overflow: hidden;
+      color: white;
+      font-family: "Creepster", cursive, sans-serif;
+      text-align: center;
     }
     canvas {
       display: block;
       margin: auto;
       background: black;
     }
+    #hud {
+      padding: 8px;
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
   </style>
+  <!-- spooky font from Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="hud">Score: 0 &nbsp; Lives: 3 &nbsp; Level: 1</div>
   <canvas id="game" width="560" height="620"></canvas>
   <script src="game.js"></script>
 </body>
